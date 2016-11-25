@@ -59,8 +59,10 @@ const factory = (ripple, FontIcon) => {
 
     render () {
       const {accent, children, className, href, icon, inverse, neutral,
-        primary, theme, type, ...others} = this.props;
-      const element = href ? 'RrLink' : 'button';
+        primary, theme, type, activeStyle, activeClassName, activeOnlyWhenExact,
+        isActive, ...others} = this.props;
+
+      const element = href ? RrLink : 'button';
       const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
       const classes = classnames([theme.toggle], {
         [theme[level]]: neutral,
@@ -79,9 +81,24 @@ const factory = (ripple, FontIcon) => {
         'data-react-toolbox': 'button'
       };
 
-      return React.createElement(element, props,
+      const rtButton = React.createElement(element, props,
         icon ? typeof icon === 'string' ? <FontIcon className={theme.icon} value={icon} /> : icon : null,
         children
+      );
+
+      if (!href) {
+        return rtButton;
+      }
+
+      return (
+        <RrLink
+          activeStyle={activeStyle}
+          activeClassName={activeClassName}
+          activeOnlyWhenExact={activeOnlyWhenExact}
+          isActive={isActive}
+          to={href}>{
+          rtButton
+        }</RrLink>
       );
     }
   }
