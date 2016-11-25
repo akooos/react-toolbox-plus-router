@@ -1,6 +1,6 @@
 {
   "name": "react-toolbox-plus-router",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React toolbox with react router support.",
   "main": "./lib",
   "scripts": {
