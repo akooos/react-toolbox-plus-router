@@ -1,3 +1,4 @@
 *.sublime-workspace
 *.lock
+lib
 node_modules
