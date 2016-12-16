@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { themr } from 'react-css-themr';
 import { LIST } from 'react-toolbox/lib/identifiers.js';
 import {Link as RrLink} from 'react-router';
-import InjectListItemContent from 'react-toolbox/lib/ListItemContent.js';
-import InjectListItemLayout from 'react-toolbox/lib/ListItemLayout.js';
+import InjectListItemContent from 'react-toolbox/lib/list/ListItemContent.js';
+import InjectListItemLayout from 'react-toolbox/lib/list/ListItemLayout.js';
 import rippleFactory from 'react-toolbox/lib/ripple/Ripple.js';
 
 const factory = (ripple, ListItemLayout, ListItemContent) => {
@@ -107,3 +107,4 @@ const ListItem = factory(ripple, InjectListItemLayout, InjectListItemContent);
 export default themr(LIST)(ListItem);
 export { factory as listItemFactory };
 export { ListItem };
+
